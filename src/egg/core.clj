@@ -1,6 +1,7 @@
 (ns egg.core
   (:require [clojure.tools.cli :refer [parse-opts]]
-            [clojure.string :as string])
+            [clojure.string :as string]
+            [egg.validate :as validate])
   (:gen-class))
 
 ;; options
@@ -14,12 +15,12 @@
 
 (def validate-options
   [["-h" "--help"]
-   ["-p" "--path PATH"]])
+   ["-u" "--uri URI"]])
 
 ;; commands
 
-(defn validate! [options]
-  (println options))
+(defn validate! [name options]
+  (validate/eggy? (:path options)))
 
 ;; help
 
