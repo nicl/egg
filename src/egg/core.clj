@@ -48,7 +48,7 @@
 
 (defn exit [status msg]
   (println msg))
-                                        ;(System/exit status))
+;;(System/exit status))
 
 ;; running
 
