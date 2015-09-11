@@ -1,5 +1,5 @@
 {:name "Egg API Hello World"
  :up "docker run --rm -v {{pwd}}:/usr/src/app -w /usr/src/app clojure lein"
  :build {:cmd "docker run --rm -v {{pwd}}:/usr/src/app -w /usr/src/app clojure lein uberjar"
-         :target "target/uberjar/*-standalone.jar"
+         :target "egg.jar"
          :type :jar}}
