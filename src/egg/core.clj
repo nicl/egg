@@ -23,8 +23,8 @@
 
 ;; should probably accept a report and print it using a moustache template
 (defn exit [status msg]
-  (println msg)
-  (System/exit status))
+  (println msg))
+;;  (System/exit status))
 
 (defn split-words [args]
   (if args (string/split args #" ")))
@@ -38,7 +38,7 @@
      :else (f options))))
 
 (defn match-task [args]
-  (let [[task & args] (split-words (first args))]
+  (let [[task & args] (mapcat split-words args)]
     (case task
       "build" (do-task build/build (:build tasks) args)
       "test" (do-task test/test (:test tasks) args)
@@ -55,4 +55,4 @@
      errors (exit 1 (cli/error-msg errors))
      :else (match-task arguments))))
 
-;; e.g. (-main "build -h")
+;; e.g. (-main "build" "-h")
