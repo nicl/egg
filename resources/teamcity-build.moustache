@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<buildType description="{{git}}" href="/httpAuth/app/rest/buildTypes/id:{{tc-parent}}_{{name}}" id="{{tc-parent}}_{{name}}" name="{{name}}" projectId="{{tc-parent}}" projectName="{{tc-parent}}" webUrl="https://teamcity.gutools.co.uk/viewType.html?buildTypeId={{tc-parent}}_{{name}}">
+  <project description="Discussion platform" href="/httpAuth/app/rest/projects/id:Discussion" id="Discussion" name="Discussion" parentProjectId="_Root" webUrl="https://teamcity.gutools.co.uk/project.html?projectId=Discussion"/>
+  <vcs-root-entries>
+    <vcs-root-entry id="{{tc-parent}}_{{name}}">
+      <vcs-root href="/httpAuth/app/rest/vcs-roots/id:{{tc-parent}}_{{name}}" id="{{tc-parent}}_{{name}}" name="{{name}}"/>
+      <checkout-rules/>
+    </vcs-root-entry>
+  </vcs-root-entries>
+  <settings count="16">
+    <property name="allowExternalStatus" value="false"/>
+    <property name="artifactRules" value=""/>
+    <property name="buildNumberCounter" value="369"/>
+    <property name="buildNumberPattern" value="%build.counter%"/>
+    <property name="checkoutDirectory"/>
+    <property name="checkoutMode" value="ON_SERVER"/>
+    <property name="cleanBuild" value="true"/>
+    <property name="enableHangingBuildsDetection" value="true"/>
+    <property name="executionTimeoutMin" value="0"/>
+    <property name="maximumNumberOfBuilds" value="0"/>
+    <property name="shouldFailBuildIfTestsFailed" value="true"/>
+    <property name="shouldFailBuildOnAnyErrorMessage" value="false"/>
+    <property name="shouldFailBuildOnBadExitCode" value="true"/>
+    <property name="shouldFailBuildOnOOMEOrCrash" value="true"/>
+    <property name="showDependenciesChanges" value="false"/>
+    <property name="vcsLabelingBranchFilter" value="+:<default>"/>
+  </settings>
+  <parameters count="0" href="/app/rest/buildTypes/id:{{tc-parent}}_{{name}}/parameters"/>
+  <steps count="1">
+    <step id="RUNNER_118" name="" type="simpleRunner">
+      <properties>
+        <property name="script.content" value="sh build.sh"/>
+        <property name="teamcity.step.mode" value="default"/>
+        <property name="use.custom.script" value="true"/>
+      </properties>
+    </step>
+  </steps>
+  <triggers count="1">
+    <trigger id="vcsTrigger" type="vcsTrigger">
+      <properties>
+        <property name="quietPeriodMode" value="DO_NOT_USE"/>
+        <property name="triggerRules" value="+:refs/heads/*"/>
+      </properties>
+    </trigger>
+  </triggers>
+  <snapshot-dependencies/>
+  <artifact-dependencies/>
+  <agent-requirements/>
+  <builds href="/httpAuth/app/rest/buildTypes/id:{{tc-parent}}_{{name}}/builds/"/>
+</buildType>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<vcs-root href="/httpAuth/app/rest/vcs-roots/id:Discussion_Egg" lastChecked="20150911T124046+0100" modificationCheckInterval="300" name="Egg" status="FINISHED" vcsName="jetbrains.git">
+  <project description="Discussion platform" href="/httpAuth/app/rest/projects/id:Discussion" id="Discussion" name="Discussion" parentProjectId="_Root" webUrl="https://teamcity.gutools.co.uk/project.html?projectId=Discussion"/>
+  <properties>
+    <property name="agentCleanFilesPolicy" value="ALL_UNTRACKED"/>
+    <property name="agentCleanPolicy" value="ON_BRANCH_CHANGE"/>
+    <property name="authMethod" value="PRIVATE_KEY_FILE"/>
+    <property name="branch" value="master"/>
+    <property name="ignoreKnownHosts" value="true"/>
+    <property name="privateKeyPath" value="/home/devjobs/github_ssh/ci"/>
+    <property name="submoduleCheckout" value="CHECKOUT"/>
+    <property name="teamcity:branchSpec" value="+:refs/heads/*"/>
+    <property name="url" value="git@github.com:nicl/egg.git"/>
+    <property name="usernameStyle" value="USERID"/>
+  </properties>
+</vcs-root>
