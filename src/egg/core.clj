@@ -2,7 +2,7 @@
   (:require [clojure.tools.cli :refer [parse-opts]]
             [clojure.string :as string]
             [egg.tasks.build :as build]
-            [egg.tasks.test :as test]
+            [egg.tasks.up :as up]
             [egg.cli :as cli])
   (:gen-class))
 
@@ -13,8 +13,8 @@
    :build    {:name "build"
               :desc "Build Docker container for Egg"
               :opts [["-h" "--help"]]}
-   :test     {:name "test"
-              :desc "Run tests for Egg"
+   :up       {:name "up"
+              :desc "Up Egg (run commands against build tool)"
               :opts [["-h" "--help"]]}
    :validate {:name "validate"
               :desc "Validate Egg (against a provided URI)"
@@ -23,8 +23,8 @@
 
 ;; should probably accept a report and print it using a moustache template
 (defn exit [status msg]
-  (println msg))
-;;  (System/exit status))
+  (println msg)
+  (System/exit status))
 
 (defn split-words [args]
   (if args (string/split args #" ")))
@@ -35,13 +35,13 @@
     (cond
      (:help options) (exit 0 (cli/task-usage name summary))
      errors (exit 1 (cli/error-msg errors))
-     :else (f options))))
+     :else (f options arguments))))
 
 (defn match-task [args]
   (let [[task & args] (mapcat split-words args)]
     (case task
-      "build" (do-task build/build (:build tasks) args)
-      "test" (do-task test/test (:test tasks) args)
+      "build" (exit 0 (do-task build/build (:build tasks) args))
+      "up" (exit 0 (do-task up/up (:up tasks) args))
       nil (exit 0 (-> tasks :egg :options cli/usage))
       (exit 1 (cli/error-msg [(str "Unrecognised task: " task)
                           ""

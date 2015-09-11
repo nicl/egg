@@ -17,7 +17,7 @@
 
 (defn build
   "Construct Dockerfile for project"
-  [options]
+  [options arguments]
   (doto (spec/read-spec)
     (jar)
     (dockerfile)))
