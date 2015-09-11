@@ -8,6 +8,9 @@
         options-summary
         ""
         "Commands are:"
+        ""
+        "build      Run the build command, producing a Dockerfile"
+        "up         Run arbitary commands (typically against the language build-tool)"
         "validate   Validate an egg meets service requirements"
         "           (https://github.com/guardian/service)"
         ""
