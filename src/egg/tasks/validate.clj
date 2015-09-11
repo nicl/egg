@@ -1,4 +1,4 @@
-(ns egg.validate
+(ns egg.tasks.validate
   (:require [clj-http.client :as client]))
 
 ;; helpers
@@ -33,9 +33,8 @@
   (let [response (my-get uri)]
     (conj [] (status? (:status response)) (argo? (:body response)))))
 
-(defn validate [options]
+(defn egg? [base]
   "Validate egg, reporting on any errors"
-  (let [base (:uri options)
-        endpoints ["/gtg" "/healthcheck" "/dependencies"]
+  (let [endpoints ["/gtg" "/healthcheck" "/dependencies"]
         uris (map (partial str base) endpoints)]
     (report-all "Egg?" (map eggy? uris))))

@@ -5,7 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/tools.cli "0.3.3"]
-                 [clj-http "1.1.2"]]
+                 [clj-http "1.1.2"]
+                 [de.ubercode.clostache/clostache "1.4.0"]]
   :main ^:skip-aot egg.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

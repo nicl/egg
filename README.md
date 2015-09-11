@@ -1,36 +1,29 @@
 # egg
 
-FIXME: description
+A CLI tool to create and report on services.
 
-## Installation
+## Tasks
 
-Download from http://example.com/FIXME.
+Run:
 
-## Usage
+    $ egg -h
 
-FIXME: explanation
+to see available tasks.
 
-    $ java -jar egg-0.1.0-standalone.jar [args]
+To add a new task:
 
-## Options
+* add a file under src/egg/tasks/.. with your task definition
+* add the task to core.clj
 
-FIXME: listing of options this app accepts.
+Note, a task:
 
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+* accepts a list of options
+* may output to standard out as it executes
+* outputs a report (see `report.clj` for details)
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2015 Nicolas Long
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
